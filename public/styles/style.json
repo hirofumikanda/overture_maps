@@ -21,11 +21,12 @@
     {
       "id": "mierune-mono-background",
       "type": "raster",
-      "source": "mierune-mono",
+      "source": "mierune_mono",
       "minzoom": 0,
       "maxzoom": 19,
       "paint": {
-        "raster-opacity": 0.5
+        "raster-opacity": 0.5,
+        "raster-brightness-min": 0.5
       }
     },
     {
