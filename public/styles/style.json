@@ -1,0 +1,44 @@
+{
+  "version": 8,
+  "glyphs": "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
+  "sources": {
+    "osm": {
+      "type": "raster",
+      "tiles": [
+        "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+      ],
+      "tileSize": 256,
+      "attribution": "<a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> cotributors"
+    },
+    "places": {
+      "type": "vector",
+      "url": "pmtiles://data/jpn_tokyo_places.pmtiles",
+      "maxzoom": 16,
+      "minzoom": 8
+    }
+  },
+  "layers": [
+    {
+      "id": "osm-background",
+      "type": "raster",
+      "source": "osm",
+      "minzoom": 0,
+      "maxzoom": 19
+    },
+    {
+      "id": "places",
+      "type": "symbol",
+      "source": "places",
+      "source-layer": "places",
+      "layout": {
+        "text-field": ["get", "names"],
+        "text-size": 10,
+        "text-offset": [0, 0.5],
+        "text-anchor": "top"
+      },
+      "paint": {
+        "text-color": "#000000"
+      }
+    }
+  ]
+}
