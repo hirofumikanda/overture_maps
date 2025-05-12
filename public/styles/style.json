@@ -2,13 +2,13 @@
   "version": 8,
   "glyphs": "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
   "sources": {
-    "osm": {
+    "mierune_mono": {
       "type": "raster",
       "tiles": [
-        "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+        "https://tile.mierune.co.jp/mierune_mono/{z}/{x}/{y}.png"
       ],
       "tileSize": 256,
-      "attribution": "<a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> cotributors"
+      "attribution": "<a href='https://mierune.co.jp'>MIERUNE Inc.</a> <a href='https://www.openmaptiles.org/' target='_blank'>&copy; OpenMapTiles</a> <a href='https://www.openstreetmap.org/copyright' target='_blank'>&copy; OpenStreetMap contributors</a>"
     },
     "places": {
       "type": "vector",
@@ -19,11 +19,14 @@
   },
   "layers": [
     {
-      "id": "osm-background",
+      "id": "mierune-mono-background",
       "type": "raster",
-      "source": "osm",
+      "source": "mierune-mono",
       "minzoom": 0,
-      "maxzoom": 19
+      "maxzoom": 19,
+      "paint": {
+        "raster-opacity": 0.5
+      }
     },
     {
       "id": "places",
@@ -31,10 +34,15 @@
       "source": "places",
       "source-layer": "places",
       "layout": {
-        "text-field": ["get", "names"],
-        "text-size": 10,
+        "text-field": ["get", "name"],
+        "text-size": ["interpolate", ["linear"], ["zoom"], 10, 10, 15, 12],
         "text-offset": [0, 0.5],
-        "text-anchor": "top"
+        "text-max-width": 20,
+        "text-anchor": "top",
+        "text-padding": 0,
+        "icon-image": "point",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.2, 15, 0.3],
+        "icon-padding": 0
       },
       "paint": {
         "text-color": "#000000"
