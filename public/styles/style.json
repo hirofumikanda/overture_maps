@@ -250,6 +250,7 @@
         [
           "any",
           ["all", ["==", ["get", "class"], "motorway"], ["step", ["zoom"], false, 9, true]],
+          ["all", ["==", ["get", "class"], "trunk"], ["step", ["zoom"], false, 9, true]],
           ["all", ["==", ["get", "class"], "primary"], ["step", ["zoom"], false, 9, true]],
           ["all", ["==", ["get", "class"], "secondary"], ["step", ["zoom"], false, 9, true]],
           ["all", ["==", ["get", "class"], "tertiary"], ["step", ["zoom"], false, 9, true]],
