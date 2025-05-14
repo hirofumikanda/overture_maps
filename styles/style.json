@@ -31,6 +31,13 @@
       "minzoom": 0,
       "attribution": "© OpenStreetMap contributors, Overture Maps Foundation"
     },
+    "division_area": {
+      "type": "vector",
+      "url": "pmtiles://data/jpn_tokyo_division_area.pmtiles",
+      "maxzoom": 16,
+      "minzoom": 0,
+      "attribution": "© OpenStreetMap contributors, Overture Maps Foundation"
+    },
     "infrastructure": {
       "type": "vector",
       "url": "pmtiles://data/jpn_tokyo_infrastructure.pmtiles",
@@ -76,15 +83,15 @@
   },
   "layers": [
     {
-      "id": "white",
-      "type": "raster",
-      "source": "white",
-      "minzoom": 0,
-      "maxzoom": 18,
+      "id": "division-area",
+      "type": "fill",
+      "source": "division_area",
+      "source-layer": "division_area",
       "paint": {
-        "raster-opacity": 0.5,
-        "raster-brightness-min": 0.5
-      }
+        "fill-outline-color": "rgb(250, 173, 191)",
+        "fill-color": "rgb(251, 248, 243)"
+      },
+      "minzoom": 1
     },
     {
       "id": "land_cover",
@@ -206,17 +213,6 @@
       "paint": {
         "fill-color": "rgb(148, 196, 212)"
       }
-    },
-    {
-      "id": "division-boundary",
-      "type": "line",
-      "source": "division_boundary",
-      "source-layer": "division_boundary",
-      "paint": {
-        "line-color": "rgb(250, 173, 191)",
-        "line-width": 0.8
-      },
-      "minzoom": 1
     },
     {
       "id": "buildings",
